@@ -6,6 +6,8 @@ public class FollowWayPoints : MonoBehaviour
 {
     [SerializeField] private string _pathName = default;
     [SerializeField] private List<Vector3> _wayPointsPosition = new List<Vector3>();
+    [SerializeField] private float _distanceThreshold = 0.5f;
+    [SerializeField] private float _WalkSpeed = default;
     private int _currentTime = default;
 
     void Start()
@@ -30,9 +32,9 @@ public class FollowWayPoints : MonoBehaviour
         }
 
         float distance = Vector3.Distance(transform.position, _wayPointsPosition[_currentTime]);
-        while (distance > 0.5f)
+        while (distance > _distanceThreshold)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _wayPointsPosition[_currentTime], Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, _wayPointsPosition[_currentTime], Time.deltaTime * _WalkSpeed);
             distance = Vector3.Distance(transform.position, _wayPointsPosition[_currentTime]);
             yield return null;
         }
