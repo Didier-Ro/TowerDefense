@@ -32,7 +32,7 @@ public class FollowWayPoints : MonoBehaviour
         }
 
         float distance = Vector3.Distance(transform.position, _wayPointsPosition[_currentTime]);
-        while (distance > _distanceThreshold)
+        while (distance > _distanceThreshold && GameManager.Instance.CurrentGameState == GameManager.GameState.Playing)
         {
             transform.position = Vector3.MoveTowards(transform.position, _wayPointsPosition[_currentTime], Time.deltaTime * _WalkSpeed);
             distance = Vector3.Distance(transform.position, _wayPointsPosition[_currentTime]);
