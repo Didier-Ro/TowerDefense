@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Camera _mainCamera = default;
     [SerializeField] private float _maxRayDistance = 20;
     [SerializeField] private LayerMask _layerMaskGround = default;
+    [SerializeField] private UnityEvent<string> OnWeaponPurchased = default;
 
     private void Start()
     {
@@ -39,6 +41,8 @@ public class PlayerController : MonoBehaviour
                 Debug.LogError($"Weapon type {weaponType} is not valid");
                 break;
         }
+        
+        OnWeaponPurchased?.Invoke(weaponType);
     }
 
     IEnumerator HeldWeaponRoutine()

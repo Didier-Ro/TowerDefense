@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
     [SerializeField] private int _currentHealth = 100;
-    [SerializeField] private UnityEvent OnReceiveDamage;
+    [SerializeField] private UnityEvent<int> OnReceiveDamage;
     [SerializeField] private UnityEvent OnZeroHealth;
 
     public int CurrentHealth
@@ -16,7 +16,7 @@ public class Health : MonoBehaviour
     public void ReceiveDamage(int damageAmount)
     {
         CurrentHealth -= damageAmount;
-        OnReceiveDamage?.Invoke();
+        OnReceiveDamage?.Invoke(_currentHealth);
         if(CurrentHealth <= 0)
         {
             OnZeroHealth?.Invoke();
