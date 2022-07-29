@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7514370341334920998}
   - component: {fileID: 6787587514533852655}
   - component: {fileID: 8541593640719077697}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 3175537763608754449}
   - component: {fileID: 8288969787370962430}
   - component: {fileID: 8121448715775124965}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5433134172225285120}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 6399519089197368645}
   - component: {fileID: 2319119163827323838}
   - component: {fileID: 4221301069748445711}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HealtBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 3415106951528541911}
   - component: {fileID: 8439399269464016603}
   - component: {fileID: 9104550258251968754}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: -5016509044124561444}
   - component: {fileID: 8033614630503357038}
   - component: {fileID: 3330654715287464285}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MediumEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -471,6 +471,7 @@ MonoBehaviour:
   _wayPointsPosition: []
   _distanceThreshold: 0.5
   _WalkSpeed: 2
+  _gameState: {fileID: 11400000, guid: 2cc4dd3d2cd85d34599419ce1304039d, type: 2}
 --- !u!114 &7532745046437937485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,6 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5e60dd54cfbbc4b9ac9cc67f880ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameState: {fileID: 11400000, guid: 2cc4dd3d2cd85d34599419ce1304039d, type: 2}
 --- !u!114 &8033614630503357038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,7 +672,7 @@ GameObject:
   - component: {fileID: 7532745046477426111}
   - component: {fileID: 7532745046477426048}
   - component: {fileID: 7532745046477426049}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -771,7 +773,7 @@ GameObject:
   - component: {fileID: 7532745047708853347}
   - component: {fileID: 7532745047708853348}
   - component: {fileID: 7532745047708853349}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -865,7 +867,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 953540559956010283}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -904,7 +906,7 @@ GameObject:
   - component: {fileID: 2309127246851842475}
   - component: {fileID: 7930667815203850610}
   - component: {fileID: 8752824237165013817}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}

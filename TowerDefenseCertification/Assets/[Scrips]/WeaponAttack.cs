@@ -12,6 +12,8 @@ public class WeaponAttack : MonoBehaviour
     [SerializeField] private int _damagePower = 10;
     [SerializeField] private float _shootCoolDown = 1;
     [SerializeField] private UnityEvent OnShoot = default;
+    [SerializeField] private LayerMask _enemyLayerMask = default;
+    [SerializeField] private GameState _gameState = default;
 
     enum ShootTypeEnum
     {
@@ -22,7 +24,7 @@ public class WeaponAttack : MonoBehaviour
     [SerializeField] private ShootTypeEnum _shootType = default;
     [SerializeField] private GameObject _cannonBallPrefab = default;
     [SerializeField] private Transform _cannonBallSpawn = default;
-    
+
     public void StartWeaponAttack()
     {
         StartCoroutine(FireRoutine());
@@ -30,10 +32,10 @@ public class WeaponAttack : MonoBehaviour
 
     IEnumerator FireRoutine()
     {
-        while (GameManager.Instance.CurrentGameState == GameManager.GameState.Playing)
+        while (_gameState.CurrentGameState == GameState.GameStateEnum.Playing)
         {
             Ray ray = new Ray(_weaponBarrel.position, _weaponBarrel.forward);
-            if (Physics.Raycast(ray, out RaycastHit hit, _maxRayDistance))
+            if (Physics.Raycast(ray, out RaycastHit hit, _maxRayDistance, _enemyLayerMask))
             {
                 if (hit.collider.CompareTag("Enemy"))
                 {

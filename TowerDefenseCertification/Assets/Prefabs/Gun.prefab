@@ -483,6 +483,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
   _shootType: 0
   _cannonBallPrefab: {fileID: 0}
   _cannonBallSpawn: {fileID: 0}

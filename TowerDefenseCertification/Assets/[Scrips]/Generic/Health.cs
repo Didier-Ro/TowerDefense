@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
+    [SerializeField] private int _maxHealt = 100;
     [SerializeField] private int _currentHealth = 100;
     [SerializeField] private UnityEvent<int> OnReceiveDamage;
     [SerializeField] private UnityEvent OnZeroHealth;
@@ -21,5 +23,10 @@ public class Health : MonoBehaviour
         {
             OnZeroHealth?.Invoke();
         }
+    }
+
+    private void OnEnable()
+    {
+        _currentHealth = _maxHealt;
     }
 }

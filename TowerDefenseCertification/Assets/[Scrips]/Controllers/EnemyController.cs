@@ -1,13 +1,14 @@
 using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
+    [SerializeField] private GameState _gameState = default;
     private void OnEnable()
     {
-        GameManager.Instance.EnemyCount++;
+        _gameState.EnemyCount++;
     }
 
     private void OnDisable()
     {
-        GameManager.Instance.EnemyCount--;
+        _gameState.EnemyCount--;
     }
 }

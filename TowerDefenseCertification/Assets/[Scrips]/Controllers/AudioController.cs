@@ -10,7 +10,7 @@ public class AudioController : MonoBehaviour
 
     private void Start()
     {
-        PlayAudio("GameMusic");
+        //PlayAudio("GameMusic");
     }
 
     public void PlayAudio(string audioName)

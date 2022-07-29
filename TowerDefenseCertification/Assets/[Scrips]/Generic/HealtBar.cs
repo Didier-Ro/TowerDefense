@@ -19,6 +19,11 @@ public class HealtBar : MonoBehaviour
         _slider.value = _health.CurrentHealth;
     }
 
+    private void OnEnable()
+    {
+        
+    }
+
     public void UpdateSliderValue(int newValue)
     {
         _slider.value = newValue;

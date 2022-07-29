@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _maxRayDistance = 20;
     [SerializeField] private LayerMask _layerMaskGround = default;
     [SerializeField] private UnityEvent<string> OnWeaponPurchased = default;
+    [SerializeField] private GameState _gameState = default;
 
     private void Start()
     {
@@ -47,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator HeldWeaponRoutine()
     {
-        while (GameManager.Instance.CurrentGameState == GameManager.GameState.Playing)
+        while (_gameState.CurrentGameState == GameState.GameStateEnum.Playing)
         {
             if (_heldWeapon != null)
             {

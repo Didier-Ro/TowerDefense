@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6227630423271673867}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 1614939480888770390}
   - component: {fileID: 1614939480888770409}
   - component: {fileID: 1614939480888770391}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: -1889410877393404600}
   - component: {fileID: 3134012857337977503}
   - component: {fileID: -8620531298729159697}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -211,6 +211,7 @@ MonoBehaviour:
   _wayPointsPosition: []
   _distanceThreshold: 0.5
   _WalkSpeed: 4
+  _gameState: {fileID: 11400000, guid: 2cc4dd3d2cd85d34599419ce1304039d, type: 2}
 --- !u!114 &1614939481523130036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5e60dd54cfbbc4b9ac9cc67f880ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameState: {fileID: 11400000, guid: 2cc4dd3d2cd85d34599419ce1304039d, type: 2}
 --- !u!114 &-1889410877393404600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,7 +412,7 @@ GameObject:
   - component: {fileID: 1614939481603962228}
   - component: {fileID: 1614939481603962231}
   - component: {fileID: 1614939481603962230}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +508,7 @@ GameObject:
   - component: {fileID: 8228718457955423376}
   - component: {fileID: 1846337251103099519}
   - component: {fileID: 6899095000088939170}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HealtBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -612,7 +614,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5414722801823684941}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -652,7 +654,7 @@ GameObject:
   - component: {fileID: 2676332481524263532}
   - component: {fileID: 4473648757067458295}
   - component: {fileID: 1337269562122117923}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -752,7 +754,7 @@ GameObject:
   - component: {fileID: 1962457143957113988}
   - component: {fileID: 8496792652622653703}
   - component: {fileID: 3935383129762740640}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -828,7 +830,7 @@ GameObject:
   - component: {fileID: 653702639678600311}
   - component: {fileID: 2220952973781661382}
   - component: {fileID: 8307709920431377594}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -904,7 +906,7 @@ GameObject:
   - component: {fileID: 404825546319354318}
   - component: {fileID: 216152867417062197}
   - component: {fileID: 5452889161474915679}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}

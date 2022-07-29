@@ -27,3 +27,17 @@ MonoBehaviour:
     Pitch: 1
     Loop: 0
     StartDelay: 0
+  - AudioName: GunShot
+    AudioClips:
+    - {fileID: 8300000, guid: 949cfac424da56f46875625dec4319f9, type: 3}
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    StartDelay: 0
+  - AudioName: LaserTurretShot
+    AudioClips:
+    - {fileID: 8300000, guid: b6966e18247d733459f154f6af847abc, type: 3}
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    StartDelay: 0

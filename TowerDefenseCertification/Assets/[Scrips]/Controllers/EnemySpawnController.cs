@@ -13,23 +13,28 @@ public class EnemySpawnController : MonoBehaviour
     [SerializeField] private float _maximumSpawnDelay = 3;
     [SerializeField] private float _waitTimeBetweenWaves = 5;
     [SerializeField] private UnityEvent OnWavesEnd = default;
+    [SerializeField] private GameState _gameState = default;
     private int _wavesNumber = default;
+    private ObjectPool _weakEnemyPool = default;
 
     private void Start()
     {
+        _weakEnemyPool = new ObjectPool();
+        _weakEnemyPool.ObjectPrefab = _weakEnemyPrefab;
         StartCoroutine(CreateNewEnemies());
     }
 
     IEnumerator CreateNewEnemies()
     {
-        while(_wavesNumber < _wavesData.Waves.Length && GameManager.Instance.CurrentGameState == GameManager.GameState.Playing)
+        while(_wavesNumber < _wavesData.Waves.Length && _gameState.CurrentGameState == GameState.GameStateEnum.Playing)
         {
             yield return new WaitForSeconds(_waitTimeBetweenWaves);
-            StartCoroutine(SpawnEnemies(_wavesData.Waves[_wavesNumber].WeakEnemies, _weakEnemyPrefab));
+            /*StartCoroutine(SpawnEnemies(_wavesData.Waves[_wavesNumber].WeakEnemies, _weakEnemyPrefab));
             StartCoroutine(SpawnEnemies(_wavesData.Waves[_wavesNumber].MidEnemies, _midEnemyPrefab));
-            StartCoroutine(SpawnEnemies(_wavesData.Waves[_wavesNumber].HeavyEnemies, _heavyEnemyPrefab));
+            StartCoroutine(SpawnEnemies(_wavesData.Waves[_wavesNumber].HeavyEnemies, _heavyEnemyPrefab));*/
+            StartCoroutine(SpawnEnemiesFromPool(_wavesData.Waves[_wavesNumber].WeakEnemies, _weakEnemyPool));
 
-            while (GameManager.Instance.EnemyCount > 0)
+            while (_gameState.EnemyCount > 0)
             {
                 yield return null;
             }
@@ -37,7 +42,22 @@ public class EnemySpawnController : MonoBehaviour
             _wavesNumber++;
         }
 
-        OnWavesEnd?.Invoke();
+        if (!GameManager.Instance.GameOver)
+        {
+            OnWavesEnd?.Invoke();
+        }
+
+    }
+
+    IEnumerator SpawnEnemiesFromPool(int enemyAmount, ObjectPool objectPool)
+    {
+        for (int i = 0; i < enemyAmount; i++)
+        {
+            GameObject enemy = objectPool.GetGameObjectFromPool();
+            enemy.transform.position = _spawnPoint.position;
+            enemy.SetActive(true);
+            yield return new WaitForSeconds(Random.Range(_minimumSpawnDelay, -_maximumSpawnDelay));
+        }
     }
 
     IEnumerator SpawnEnemies(int enemyAmount, GameObject enemyPrefab)

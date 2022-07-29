@@ -52,6 +52,9 @@ public class Bomb : MonoBehaviour
         
         foreach (var weapon in _damageList)
         {
+            if(weapon == null)
+                continue;
+            
             if (weapon.TryGetComponent(out Health health))
             {
                 health.ReceiveDamage(_damagePower);

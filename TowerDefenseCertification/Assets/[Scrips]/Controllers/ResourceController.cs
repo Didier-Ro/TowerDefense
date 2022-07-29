@@ -19,15 +19,17 @@ public class ResourceController : MonoBehaviour
     private int _cost = default;
     [SerializeField] private UnityEvent<int> OnGoldAmountChange = default;
     [SerializeField] private ResourceData _resourceData = default;
+    [SerializeField] private GameState _gameState = default;
 
     private void Start()
     {
+        Gold = _startGoldAmount;
         StartCoroutine(IncreaseGoldRoutine());
     }
 
     IEnumerator IncreaseGoldRoutine()
     {
-        while (GameManager.Instance.CurrentGameState == GameManager.GameState.Playing)
+        while (_gameState.CurrentGameState == GameState.GameStateEnum.Playing)
         {
             yield return new WaitForSeconds(_increaseGoldDelayTime);
             Gold += _increaseGoldAmount;

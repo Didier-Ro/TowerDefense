@@ -1,28 +1,17 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    private int _enemyCount = default;
     [SerializeField] private float _timeSpeed = 1;
     [SerializeField] private UnityEvent OnGameOver = default;
+    [SerializeField] private GameState _gameState = default;
     private bool _gameOver = default;
     private bool _winner = default;
     
-    public enum GameState
-    {
-        Playing,
-        GameOver
-    }
-
-    private GameState _currentGameState;
-
-    public GameState CurrentGameState
-    {
-        get => _currentGameState;
-        set => _currentGameState = value;
-    }
+    
 
     public bool Winner
     {
@@ -36,14 +25,9 @@ public class GameManager : MonoBehaviour
         set
         {
             _gameOver = value;
-            CurrentGameState = GameState.GameOver;
+            _gameState.CurrentGameState = GameState.GameStateEnum.GameOver;
             OnGameOver?.Invoke();
         }
-    }
-    public int EnemyCount
-    {
-        get => _enemyCount;
-        set => _enemyCount = value;
     }
 
     public float TimeSpeed
@@ -67,5 +51,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         Time.timeScale = _timeSpeed;
+    }
+
+    private void OnDisable()
+    {
+        _gameState.CurrentGameState = GameState.GameStateEnum.Playing;
     }
 }

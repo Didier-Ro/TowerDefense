@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,13 +9,15 @@ public class FollowWayPoints : MonoBehaviour
     [SerializeField] private List<Vector3> _wayPointsPosition = new List<Vector3>();
     [SerializeField] private float _distanceThreshold = 0.5f;
     [SerializeField] private float _WalkSpeed = default;
-    private int _currentTime = default;
+    [SerializeField] private GameState _gameState = default;
+    private int _currentWayPoint = default;
 
-    void Start()
+    private void OnEnable()
     {
+        _currentWayPoint = 0;
         StartCoroutine(MoveToNextWayPoint());
     }
-
+    
     private void GetWayPoints()
     {
         Transform path = GameObject.Find(_pathName).transform;
@@ -31,17 +34,17 @@ public class FollowWayPoints : MonoBehaviour
             GetWayPoints();
         }
 
-        float distance = Vector3.Distance(transform.position, _wayPointsPosition[_currentTime]);
-        while (distance > _distanceThreshold && GameManager.Instance.CurrentGameState == GameManager.GameState.Playing)
+        float distance = Vector3.Distance(transform.position, _wayPointsPosition[_currentWayPoint]);
+        while (distance > _distanceThreshold && _gameState.CurrentGameState == GameState.GameStateEnum.Playing)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _wayPointsPosition[_currentTime], Time.deltaTime * _WalkSpeed);
-            distance = Vector3.Distance(transform.position, _wayPointsPosition[_currentTime]);
+            transform.position = Vector3.MoveTowards(transform.position, _wayPointsPosition[_currentWayPoint], Time.deltaTime * _WalkSpeed);
+            distance = Vector3.Distance(transform.position, _wayPointsPosition[_currentWayPoint]);
             yield return null;
         }
 
-        if (_currentTime < _wayPointsPosition.Count -1)
+        if (_currentWayPoint < _wayPointsPosition.Count -1)
         {
-            _currentTime++;
+            _currentWayPoint++;
             StartCoroutine(MoveToNextWayPoint());
         }
     }
