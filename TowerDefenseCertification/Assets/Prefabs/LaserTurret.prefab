@@ -768,18 +768,6 @@ MonoBehaviour:
   OnShoot:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 58593646}
-        m_TargetAssemblyTypeName: FlashEffect, Assembly-CSharp
-        m_MethodName: PlayFlash
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2718374185386778359}
         m_TargetAssemblyTypeName: WeaponAttack, Assembly-CSharp
         m_MethodName: PlaySFX
@@ -795,6 +783,7 @@ MonoBehaviour:
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  _gameState: {fileID: 11400000, guid: 2cc4dd3d2cd85d34599419ce1304039d, type: 2}
   _shootType: 0
   _cannonBallPrefab: {fileID: 0}
   _cannonBallSpawn: {fileID: 0}
@@ -810,6 +799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338ba7208f925ae4f8e39a935d849fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxHealt: 100
   _currentHealth: 100
   OnReceiveDamage:
     m_PersistentCalls:

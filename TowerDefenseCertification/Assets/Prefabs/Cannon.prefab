@@ -977,6 +977,7 @@ MonoBehaviour:
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  _gameState: {fileID: 11400000, guid: 2cc4dd3d2cd85d34599419ce1304039d, type: 2}
   _shootType: 1
   _cannonBallPrefab: {fileID: 7120524861024268841, guid: 131a5e4fb7e2c314e8fbe7d33a4367f9,
     type: 3}
@@ -993,6 +994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338ba7208f925ae4f8e39a935d849fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxHealt: 100
   _currentHealth: 100
   OnReceiveDamage:
     m_PersistentCalls:
